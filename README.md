@@ -7,3 +7,4 @@ Small web utilities for personal use. Each folder is an independent static site.
 | Folder | Description | Deploy |
 |--------|-------------|--------|
 | `time/` | 台灣時鐘、計時器、番茄鐘 | pipee.tw |
+| `text/` | 文字處理工具 (strver) | pipee.tw |
