@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Tools</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <nav class="tabs">
+      <button class="tab active" data-tab="clock">時鐘</button>
+      <button class="tab" data-tab="stopwatch">計時器</button>
+      <button class="tab" data-tab="pomodoro">番茄鐘</button>
+    </nav>
+
+    <!-- 時鐘 -->
+    <section id="clock" class="panel active">
+      <div class="clock-time" id="clock-time">00:00:00</div>
+      <div class="clock-date" id="clock-date"></div>
+      <div class="clock-label">台灣時間 (UTC+8)</div>
+    </section>
+
+    <!-- 計時器 -->
+    <section id="stopwatch" class="panel">
+      <div class="stopwatch-time" id="stopwatch-time">00:00:00<span class="ms">.000</span></div>
+      <div class="controls">
+        <button id="sw-start" class="btn btn-start">開始</button>
+        <button id="sw-reset" class="btn btn-reset" disabled>重置</button>
+      </div>
+      <ul id="sw-laps" class="laps"></ul>
+    </section>
+
+    <!-- 番茄鐘 -->
+    <section id="pomodoro" class="panel">
+      <div class="pomo-status" id="pomo-status">工作</div>
+      <div class="pomo-time" id="pomo-time">25:00</div>
+      <div class="pomo-progress">
+        <div class="pomo-progress-bar" id="pomo-progress-bar"></div>
+      </div>
+      <div class="controls">
+        <button id="pomo-start" class="btn btn-start">開始</button>
+        <button id="pomo-reset" class="btn btn-reset" disabled>重置</button>
+      </div>
+      <div class="pomo-settings">
+        <label>
+          工作
+          <input type="number" id="pomo-work" min="1" max="120" value="25">
+          分鐘
+        </label>
+        <label>
+          休息
+          <input type="number" id="pomo-break" min="1" max="60" value="5">
+          分鐘
+        </label>
+      </div>
+      <div class="pomo-count">
+        已完成 <span id="pomo-completed">0</span> 個番茄
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

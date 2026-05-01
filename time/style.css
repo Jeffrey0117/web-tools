@@ -1,0 +1,275 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #0a0a0a;
+  color: #e0e0e0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 16px;
+}
+
+.app {
+  width: 100%;
+  max-width: 480px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 2px;
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 40px;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px 0;
+  border: none;
+  background: transparent;
+  color: #888;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.2s;
+}
+
+.tab:hover {
+  color: #bbb;
+}
+
+.tab.active {
+  background: #2a2a2a;
+  color: #fff;
+}
+
+/* Panels */
+.panel {
+  display: none;
+  text-align: center;
+}
+
+.panel.active {
+  display: block;
+}
+
+/* Clock */
+.clock-time {
+  font-size: 72px;
+  font-weight: 200;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.clock-date {
+  font-size: 18px;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.clock-label {
+  font-size: 13px;
+  color: #555;
+}
+
+/* Stopwatch */
+.stopwatch-time {
+  font-size: 64px;
+  font-weight: 200;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 1px;
+  margin-bottom: 32px;
+}
+
+.stopwatch-time .ms {
+  font-size: 32px;
+  color: #666;
+}
+
+/* Buttons */
+.controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.btn {
+  padding: 12px 32px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  min-width: 100px;
+}
+
+.btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.btn-start {
+  background: #2d7d46;
+  color: #fff;
+}
+
+.btn-start:hover:not(:disabled) {
+  background: #35924f;
+}
+
+.btn-start.running {
+  background: #c4a035;
+  color: #000;
+}
+
+.btn-start.running:hover {
+  background: #d4b040;
+}
+
+.btn-reset {
+  background: #333;
+  color: #ccc;
+}
+
+.btn-reset:hover:not(:disabled) {
+  background: #444;
+}
+
+/* Laps */
+.laps {
+  list-style: none;
+  max-height: 200px;
+  overflow-y: auto;
+  text-align: left;
+  padding: 0 20px;
+}
+
+.laps li {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid #1a1a1a;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  color: #888;
+}
+
+/* Pomodoro */
+.pomo-status {
+  font-size: 16px;
+  color: #888;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.pomo-status.break {
+  color: #4a9eff;
+}
+
+.pomo-time {
+  font-size: 80px;
+  font-weight: 200;
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 20px;
+}
+
+.pomo-progress {
+  width: 100%;
+  height: 4px;
+  background: #1a1a1a;
+  border-radius: 2px;
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+
+.pomo-progress-bar {
+  height: 100%;
+  background: #2d7d46;
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.5s linear;
+}
+
+.pomo-progress-bar.break {
+  background: #4a9eff;
+}
+
+.pomo-settings {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+.pomo-settings label {
+  font-size: 14px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pomo-settings input {
+  width: 56px;
+  padding: 6px 8px;
+  border: 1px solid #333;
+  border-radius: 6px;
+  background: #1a1a1a;
+  color: #e0e0e0;
+  font-size: 14px;
+  text-align: center;
+}
+
+.pomo-settings input:focus {
+  outline: none;
+  border-color: #555;
+}
+
+.pomo-count {
+  font-size: 13px;
+  color: #555;
+}
+
+.pomo-count span {
+  color: #2d7d46;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 420px) {
+  .clock-time {
+    font-size: 48px;
+  }
+
+  .stopwatch-time {
+    font-size: 44px;
+  }
+
+  .stopwatch-time .ms {
+    font-size: 22px;
+  }
+
+  .pomo-time {
+    font-size: 56px;
+  }
+
+  .btn {
+    padding: 10px 24px;
+    font-size: 14px;
+    min-width: 80px;
+  }
+}
